@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h1>Ticket Tracker
+		</h1> 
+
+		<p>In the box below, you can input your ticket number. 
+		   Doing this will provide you information about your ticket.
+		</p>
+		
+		<form> 
+			<!-- Input -->
+ 			<b> Ticket Number:</b> <br>
+ 			<input type="name" name="number" required><br>
+ 			
+			<input type="submit">
+ 			<input type="reset"> <br> <br>
+			
+			<!-- <input list="information"> -->
+			
+			<!-- <datalist id="information"> -->
+				<!-- <option value="status"> -->
+				<!-- <option value="officer working on ticket"> -->
+				<!-- <option value="department working on ticket"> -->
+				<!-- <option value="estimated time to complete"> -->
+			<!-- </datalist> -->
+
+			<!-- Output -->
+			<label id="status"> <b> Status: </b> </label> <br>
+
+			<label id="officer"> <b> Officer assigned to ticket: </b> </label> <br>
+			
+			<label> from </label> <br>
+
+			<label id="time"> <b> Estimated time to complete </b> </label> <br>
+			
+		</form> 
+
+
+	</body>
+</html>

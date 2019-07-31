@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    </head> 
+        <!-- Heading -->
+        <div class="container-fluid hidden-xs hidden-print" style="background-color: #005689; color: #fff; height: 60px;">
+            <a href="/" title="City of Worcester, MA - Home"> 
+                <img src="logo.png" width="235" height="55" alt="City Seal and the Words The City of Worcester" class="hidden-xs" style="float: left; margin-top: 2px;">
+            </a>
+            
+            <!-- Go! Button -->
+                    <button type="submit" class="btn-primary" style="position: absolute; right: 10px; top: 18.75px;">Go!</button>
+            
+            <!-- Search Bar -->
+            <div id="search;" style="float: right; padding-top: 10px;">
+                <form class="form-inline" action="/site-search" method="get">
+                    <div class="form-group">
+                        <label for="keywords_formId" class="sr-only"> </label>
+                        <input type="text" class="form-control" placeholder="Search..." id="keywords_formId" maxlength="255" name="keywords">
+                    </div> 
+                </form>
+                
+                <!-- Go! Button Style -->
+                <style>
+                    .btn-primary {
+                        background-color: #00456e;
+                        border: none; 
+                        color: white;
+                        padding: 15px 25 px;
+                        text-align: center;
+                        font-size: 16px; 
+                        cursor: pointer;
+                    }
+                </style>
+            </div>
+        
+            <!-- Social Media --> 
+                <!-- The social media accounts are properly linked --> 
+            <div id="social;" style="float: right; padding-right: 25px; padding-top: 10px;">
+                <a href="https://www.facebook.com/WorcesterMassachusettsOfficial" title="City of Worcester Facebook Page">
+                    <img src="facebook.png" class="hidden-xs" width="30" height="30" alt="Facebook Button">
+                </a>
+                <a href="https://twitter.com/TweetWorcester" title="Follow the City of Worcester on Twitter">
+                    <img src="twitter.png" class="hidden-xs" width="30" height="30" alt="Twitter Button">
+                </a>
+                <a href="https://youtube.com/user/cityofwooofficial" title="City of Worcester YouTube Channel">
+                    <img src="youtube.png" class="hidden-xs" width="30" height="30" alt="YouTube Button">
+                </a>
+                <a href="https://instagram.com/cityofworcester/" title="City of Worcester Instagram">
+                    <img src="instagram.png" class="hidden-xs" width="30" height="30" alt="Instagram Button">
+                </a>
+            </div>
+        </div> 
+        
+        <!-- Menu --> 
+            <!-- Note: the drop downs doen't work. This is just meant to make it look like the DPW website, so the officials can see how it would be embedded into it. -->
+            <!-- Glyphicons weren't added. To present this to DPW and DIS officials, I would recommend putting them in just to make the ticket tracker look more integrateable -->
+        <nav class="navbar navbar-inverse hidden-print affix-top" data-spy="affix" data-offset-top="75" style="z-index: 1000;"> 
+            <div class="container-fluid" id="menu-outer">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="hidden-lg hidden-md hidden sm" href="/" title="City of Worcester - Home">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right open-sans-condensed">
+                        <li class="dropdown">
+                            <a href="#" title="Translate" class="dropdown-toggle" data-toggle="dropdown">
+                                Translate
+                                <b class="caret"></b>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/tickettracker" title="Ticket Tracker">
+                                Ticket Tracker
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/departments" title="Departments & Divisions">
+                                Departments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/customer-service" title="Customer Service">
+                                Customer Service
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/online-payments" title="Online Payments" class="attention-navbar2">
+                                Make A Payment
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" title="I Want To" class="dropdown-toggle" data-toggle="dropdown">
+                                I Want To
+                                <b class="caret"></b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+        
+        <!-- Link to CSS -->
+        <link href="main.css" rel="stylesheet" type="text/css">
+        
+        <body class="center">
+        
+		<div >
+            	
+		<h1>
+            <b >Ticket Tracker</b>
+		</h1> 
+
+
+		<p>
+            In the box below, you can input your ticket number. 
+            Doing this will provide you information about your ticket.
+		</p>
+
+		<form onsubmit="event.preventDefault();">
+	
+			<!-- Input -->
+ 			<b> Ticket Number: </b> <br>
+ 		<input type="name" name="number" id="number" required placeholder="Enter Ticket Number" >
+                <button onclick="myFunction()"> Submit </button>
+	 
+           
+                <p id="submit"></p>
+
+        <!-- Output -->
+            <label id="status-label"> <b> Status: </b> </label> 
+   			<p id="ticket-number" ></p>
+			<label id="lblofficer"> <b> Officer assigned to ticket: </b> </label> <br> <br>
+			
+			<label id="Officer"> from </label> <br> <br>
+
+			<label id="time"> <b> Estimated time to complete: </b> </label> <br> <br>
+
+            <p> Below shows statistics about tickets similar to yours. 
+            </p>
+      </div>
+</form>
+
+
+            <!-- For now, 4 tickets are hardcoded as an example of how the system works--> 
+         <script>
+ 	function resetForm()
+	  {
+                var  p =  null, inputTicket = null, lblOfficer= null;
+ 		//get objects
+		inputTicket = document.getElementById("number");
+  		p =  document.getElementById("ticket-number");
+		lblOfficer = document.getElementById("Officer");
+                //set objects to bland if not null
+		if (inputTicket != null)
+		   {
+			inputTicket.value = '';
+                   }
+		if (p != null)
+		{	
+                	p.innerText = '';
+                }
+		if (lblOfficer  != null)
+		   {
+			lblOfficer.innerText = '';
+                   }
+              return true;
+
+          };
+            function myFunction(event) {
+
+                // Only hardcoded for some of the variables discussed  
+		 var self = this;		
+                 var jsonResult = [{ticketNumber:1000001, 
+                                    Officer:'DoucetteM from Customer Service in the Department of Public Works', 
+                                    Status:'This ticket is closed.'},
+					   {ticketNumber:1000002, 
+                        Officer:'DoucetteM from Customer Service in the Department of Public Works',
+                        Status:'This ticket is closed.'},
+					   {ticketNumber:1000003, 
+                        Officer:'DoucetteM from Customer Service in the Department of Public Works',
+                        Status:'This ticket is cancelled.'},
+				           {ticketNumber:1000004, 
+                            Officer:'RamosL from Customer Service in the Department of Public Works',
+                            Status:'This ticket is closed.'}];
+                  //instatiate object/values
+ 	          var number = '', p =  null, inputTicket = null, status = '', officer= '';
+		  //Get input object from the client
+                  //added id to input object number.  This is where the client types to value to retrieve from the page
+                  //name attribute of the objects is when you send the object back to the server for evaluation; 
+                  //your still working on the client side
+                  // your going to use the xmlhttprequest to retrieve JSON data from the server and than evaluate the data when the time comes
+                  inputTicket = document.getElementById("number");
+                  if (inputTicket != null)
+		   {
+			number = parseInt(inputTicket.value);
+                   }
+		 
+                   
+                p =  document.getElementById("ticket-number");
+                lblOfficer = document.getElementById("Officer");
+		   //use switch statement
+		
+               //loops through the array;
+               //I think though you're going to pass the ticket number to the service and get the ticket back 
+               //so you won't have to loop
+	       var ticket = jsonResult.filter(function(tick)
+		{
+ 		    return tick.ticketNumber == number
+     
+                  
+		});
+	       
+		//if it found something get the first one
+                //hardcoded so there will only be one;  if more than one result you need to loop through
+		if(ticket.length > 0) {
+                     if (p != null) {	
+                		p.innerText =  ticket[0].Status
+                	 }
+                     if (lblOfficer != null) {	
+                	  lblOfficer.innerText =  ticket[0].Officer
+                	}
+                        
+
+                }else
+                {
+ 			p.innerText = "ReType Ticket Number"
+			lblOfficer.innerText = "";
+                }
+	
+		return true;
+	      };
+         
+        </script> 
+	   </body> 
+	
+</html>
