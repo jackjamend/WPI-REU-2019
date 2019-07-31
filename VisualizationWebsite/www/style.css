@@ -1,0 +1,27 @@
+/*
+.nav-tabs {
+     float: none !important;
+     }*/
+     
+.nav-tabs > li:nth-child(6) {
+     float: right;
+     }
+
+
+
+body {
+  /*margin: 3em;*/
+  margin-right: 3em;
+  margin-left: 3em;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #ebebeb;
+}
+/* 
+.slickR {
+     background-color: aqua;
+} */
+
+
+
